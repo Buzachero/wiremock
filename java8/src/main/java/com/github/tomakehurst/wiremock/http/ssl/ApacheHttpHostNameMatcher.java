@@ -9,7 +9,9 @@ import java.security.cert.X509Certificate;
 public class ApacheHttpHostNameMatcher implements HostNameMatcher {
     @Override
     public Boolean matches(X509Certificate x509Certificate, SNIHostName sniHostName) {
-        try {
+	System.out.println("Adding a small change here");
+
+        try 
             new DefaultHostnameVerifier().verify(sniHostName.getAsciiName(), x509Certificate);
             return true;
         } catch (SSLException e) {
